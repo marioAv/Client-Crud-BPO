@@ -1,0 +1,18 @@
+<form class="form-container" #form="ngForm" >
+
+        <h3>ADD COMPANY</h3>
+      
+        <!-- <div class="inner-element">
+            <label>Company Name</label>
+            <input type="text" name="lastName" #lastName="ngModel" required [(ngModel)]= "clientsData.selectedClient.lastName">
+            <small *ngIf="lastName.touched && !lastName.valid">Last Name is required</small>
+        </div> -->
+      
+        
+        <div class="inner-element">
+            <button  (click)="createNewCompany(form)" [disabled]="!form.valid">Add New Company </button>
+            <button  (click)= "confirmEditCompany(form)"> Confirm Changes </button>
+            <button  class="delete-btn" (click)= "deleteCompany()"> Delete </button>
+        </div>
+       
+    </form>

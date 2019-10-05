@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Md5 } from 'ts-md5/dist/md5';
 import { Observable, of, from, throwError } from 'rxjs';
+import { setCheckNoChangesMode } from '@angular/core/src/render3/state';
+import { discardPeriodicTasks } from '@angular/core/testing';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +19,9 @@ export class RequestsService {
     localStorage.setItem('currentToken', token);
   }
 
+
   getToken(){
-    localStorage.getItem('currentToken');
+    this.token =localStorage.getItem('currentToken'); 
   }
 
   getJson(token){
@@ -34,3 +39,9 @@ export class RequestsService {
   }
 
 }
+
+
+
+
+
+

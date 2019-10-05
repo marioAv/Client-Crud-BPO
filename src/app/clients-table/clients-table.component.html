@@ -1,0 +1,28 @@
+
+<table>
+	<thead>
+	<tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Id</th>
+    <th>Companies</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr *ngFor= "let client of clientsData.clientsList" (click)= "editClient(client)" [routerLink]="['/clients/edit/client', client.id]">
+    <td>{{client.firstName}}</td>
+    <td>{{client.lastName}}</td>
+    <td>{{client.city}}</td>
+    <td>{{client.state}}</td>
+    <td>{{client.id}}</td>
+    <td class="add-company-section"><button [routerLink]="['/clients/add/company']">ADD COMPANY</button></td>
+    <td *ngIf = "companyAdded">
+      <ul>
+        <li>heelo</li>
+      </ul>
+    </td>
+	</tr>
+	</tbody>
+</table>

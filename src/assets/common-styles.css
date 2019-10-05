@@ -1,0 +1,64 @@
+.form-container{
+    font-family: 'Poppins', sans-serif;
+    background: #9152f8;
+    background: -webkit-linear-gradient(top,#7579ff,#b224ef);
+    border-radius:10px;
+    border-radius:4px;
+    padding:20px;
+
+}
+
+.form-container small{
+    font-size:12px;
+    padding:2px;
+}
+
+
+
+.inner-element{
+    width:90%;
+    margin:15px auto;
+
+}
+
+.form-container h3{
+    text-align:center;
+    color:white;
+    font-size:30px;
+    text-transform: uppercase;
+}
+.form-container label{
+    color:white;
+    text-transform: uppercase;
+    font-size:12px;
+}
+
+.form-container input{
+    border-radius: 25px;
+    width:93%;
+    padding:10px;
+    border:none;
+}
+
+button{
+    margin-top:20px;
+    border-radius: 25px;
+    background-color: white;
+    border:none;
+    color:black;
+    width:200px;
+    display:block;
+    margin:50px auto;
+    padding:10px;
+    font-family: 'Poppins', sans-serif;
+}
+ select{
+    width:99%;
+    padding:10px;
+    border-radius:25px;
+    background-color: white;
+}
+.form-container .delete-btn{
+    border:1px solid red;
+    color:red;
+}

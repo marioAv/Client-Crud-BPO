@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import '../../assets/common-styles.css';
+
+.form-container{
+    width:500px;
+    height:600px;
+    margin:auto;
+}
+.error{
+    text-align:center;
+    color:white;
+    font-weight:bold;
+}
+
+@media only screen and (max-width:600px){
+    .form-container{
+        width:80%;
+        height:600px;
+        margin:auto;
+    }
+}
