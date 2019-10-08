@@ -17,7 +17,18 @@
     <td>{{client.city}}</td>
     <td>{{client.state}}</td>
     <td>{{client.id}}</td>
-    <td class="add-company-section"><button [routerLink]="['/clients/add/company']">ADD COMPANY</button></td>
+    <td>
+        <ul *ngFor="let company of client.companies">
+          <li>Id: {{company.id}}</li>
+          <li>Name: {{company.name}}</li>
+        </ul>
+    </td>
+    <!-- <td class="add-company-section">
+        <tr *ngFor="let company of client.companies">
+          <td> {{company.id}}</td>
+          <td> {{company.name}}</td>
+        </tr>  
+      </td> -->
     <td *ngIf = "companyAdded">
       <ul>
         <li>heelo</li>

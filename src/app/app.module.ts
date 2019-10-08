@@ -33,10 +33,6 @@ const appRoutes = [
     component: ClientComponent
   },
   {
-    path:'clients',
-    component:ClientComponent
-  },
-  {
     path: '**',
     redirectTo: 'login'
   }

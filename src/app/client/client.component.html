@@ -1,5 +1,6 @@
-<div class="page-container" >
-    <app-add-client-form></app-add-client-form>
+<div class="page-container" > 
+    <app-add-company-form *ngIf="clientsData.addCompanyMode"></app-add-company-form> 
+    <app-add-client-form *ngIf="!clientsData.addCompanyMode"></app-add-client-form>
     <app-clients-table></app-clients-table>
 </div>
 

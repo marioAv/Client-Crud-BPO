@@ -1,3 +1,5 @@
+// import {Companies} from './companies'
+
 export class Clients {
 
     firstName: string;
@@ -5,4 +7,5 @@ export class Clients {
     state:string;
     city:string;
     id:number;
+    companies:any[] = [];
 }

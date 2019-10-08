@@ -4,6 +4,12 @@
       <h3 *ngIf="!clientsData.editMode">Add Client</h3>
       <h3 *ngIf="clientsData.editMode">Edit Client</h3>
     
+        <button class="company-btn" 
+                (click)='clientsData.addCompanyMode = true' 
+                [routerLink]="['/clients/add/company']">
+                Add a company + 
+        </button>
+
       <div class="inner-element">
         <label>First Name</label>
         <input 
@@ -11,9 +17,7 @@
              name="firstName" 
              required
              #firstName="ngModel" 
-             [(ngModel)]= "clientsData.selectedClient.firstName"
-             [routerLink]="['/clients/add/client']"
-        >
+             [(ngModel)]= "clientsData.selectedClient.firstName">
         <small *ngIf= "firstName.touched && !firstName.valid">*First Name is required</small>
       </div>
     
@@ -25,7 +29,14 @@
     
       <div class="inner-element">
           <label>Choose a State</label>
-          <select name="states" id="states" required #state="ngModel" (change)= "onSelect($event.target.value)" name="state" [(ngModel)]= "clientsData.selectedClient.state">
+          <select 
+                  name="states" 
+                  id="states" 
+                  required #state="ngModel" 
+                  (change)= "onSelect($event.target.value)"
+                  name="state" 
+                  [(ngModel)]= "clientsData.selectedClient.state">
+
               <option *ngFor = "let state of statesList" value={{state.id}}>{{state.name}}</option>
            </select>
            <small *ngIf= "state.touched && !state.valid">State is required</small>
@@ -43,20 +54,33 @@
              <option *ngFor = "let city of eachStateCities" value="{{city.name}}" >{{city.name}}</option>
              <small *ngIf= "city.touched && !city.valid">City is required</small>
           </select>
+
       </div>
       
       <div class="inner-element">
           <button 
                 *ngIf="!clientsData.editMode"  
                 (click)="createNewClient(form)" 
-                [disabled]="!form.valid " 
+                [disabled]="!form.valid"  
                 [class.disabled]="!form.valid"
-                [routerLink]="['/clients/']"
                 >
                 Add New Client 
          </button>
-          <button *ngIf="clientsData.editMode" (click)= "confirmEdit(form)" [disabled]="!form.valid" [routerLink]="['/clients/']"> Confirm Changes </button>
-          <button *ngIf="clientsData.editMode" class="delete-btn" (click)= "deleteClient()" [routerLink]="['/clients/']"> Delete </button>
+
+          <button *ngIf="clientsData.editMode" 
+                  (click)= "confirmEdit(form)" 
+                  [disabled]="!form.valid" 
+                  [routerLink]="['/clients/add/client']">
+                  Confirm Changes 
+        </button>
+
+          <button *ngIf="clientsData.editMode" 
+                   class="delete-btn" 
+                   (click)= "deleteClient()" 
+                   [routerLink]="['/clients/add/client']"> 
+                   Delete 
+         </button>
       </div>
+
      
 </form>

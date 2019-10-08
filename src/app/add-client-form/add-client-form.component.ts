@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Clients} from '../models/clients';
+// import{Companies} from '../models/companies'
 import { ClientsDataService } from '../clients-data.service';
 import {RequestsService} from '../requests.service';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-client-form',
@@ -16,8 +17,21 @@ export class AddClientFormComponent implements OnInit {
   eachStateCities =[];
   stateHasValue:boolean = false;
   stateName:string;
-  clientsList=[];
   selectedClient;
+  newCompany;
+  companyName;
+
+  clientsList= [ 
+    {
+   firstName: 'Mario',
+   lastName: 'Aviles',
+   state: 'California',
+   city: 'Sacramento',
+   id: 1,
+   companies:[]
+ }];
+
+ 
   
 
   constructor( 
@@ -27,7 +41,7 @@ export class AddClientFormComponent implements OnInit {
     ) 
     {
       this.clientsList = clientsData.getClientData();
-      this.selectedClient = clientsData.selectedClient;
+
     }
 
   ngOnInit() {
@@ -50,6 +64,7 @@ export class AddClientFormComponent implements OnInit {
 
 
   //CRUD METHODS
+
   onSelect(stateid) {
     this.eachStateCities = this.citiesList.filter((item) => item.state_id == stateid);
     this.stateHasValue = true;

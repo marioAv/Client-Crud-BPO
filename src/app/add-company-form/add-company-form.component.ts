@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientsDataService } from '../clients-data.service';
 import {Clients} from '../models/clients';
+import { TouchSequence } from 'selenium-webdriver';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
+// import {Companies} from '../models/companies'
 
 @Component({
   selector: 'app-add-company-form',
@@ -10,6 +14,8 @@ import {Clients} from '../models/clients';
 export class AddCompanyFormComponent implements OnInit {
   clientsList=[];
   selectedClient;
+  newCompany;
+  companyName:string;
 
   constructor( private clientsData : ClientsDataService) { 
     this.clientsList = clientsData.getClientData();
@@ -18,24 +24,12 @@ export class AddCompanyFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  // createNewCompany(){
-  //   this.clientsData.selectedClient.companies.push({ id:1, name:'mario'});
-  //   console.log(this.clientsData.selectedClient.companies);
-  // }
-
-
-  confirmEdit(form){
-    this.clientsData.editMode=false;
-    this.clientsData.selectedClient= new Clients();
-    form.reset();
-  }
-
-  deleteClient(form){
-  if(confirm('Are you sure you want to do that?')){
-    this.clientsData.clientsList  = this.clientsData.clientsList.filter( client => client != this.clientsData.selectedClient);
-    this.clientsData.selectedClient = new Clients();
-    this.clientsData.editMode = false;
-    form.reset();
-    }
+  createNewCompany(){
+    this.clientsData.addCompanyMode = false;
+    this.clientsData.selectedClient.companies.push({
+      name:this.clientsData.companyName,
+      id:this.clientsData.selectedClient.companies.length + 1
+    });
+    this.clientsData.companyName ='';
   }
 }

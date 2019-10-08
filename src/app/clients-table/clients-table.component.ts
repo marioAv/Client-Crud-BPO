@@ -10,6 +10,7 @@ import { ClientsDataService } from '../clients-data.service';
 export class ClientsTableComponent implements OnInit {
 
   clientsList=[];
+  companiesList=[];
   
   constructor(
     private clientsData : ClientsDataService
@@ -19,11 +20,19 @@ export class ClientsTableComponent implements OnInit {
    }
 
   ngOnInit() {
+
   }
 
   editClient(client:Clients){
       this.clientsData.editMode= true;
       this.clientsData.selectedClient= client;
   }
+
+  
+  createNewCompany(client:Clients){
+      console.log(client);
+  }
+
+  
 
 }

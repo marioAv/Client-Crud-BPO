@@ -7,7 +7,10 @@ import {Clients} from './models/clients';
 export class ClientsDataService {
 
   editMode:boolean = false;
-  selectedClient:Clients = new Clients();
+  selectedClient:Clients = new Clients() ;
+  companyName:string;
+  addCompanyMode:boolean=false;
+
 
   clientsList= [ 
     {
@@ -15,7 +18,11 @@ export class ClientsDataService {
    lastName: 'Aviles',
    state: 'California',
    city: 'Sacramento',
-   id: 1
+   id: 1,
+   companies:[{
+     id:1,
+     name:"Mario"
+   }]
  }];
 
 
