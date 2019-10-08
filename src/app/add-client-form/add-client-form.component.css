@@ -5,5 +5,11 @@
     cursor: not-allowed;
 }
 .company-btn{
+    width:95%;
+    margin:25px auto;
+}
+
+.companies-container{
     width:90%;
+    margin:auto;
 }

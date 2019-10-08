@@ -4,11 +4,20 @@
       <h3 *ngIf="!clientsData.editMode">Add Client</h3>
       <h3 *ngIf="clientsData.editMode">Edit Client</h3>
     
-        <button class="company-btn" 
-                (click)='clientsData.addCompanyMode = true' 
-                [routerLink]="['/clients/add/company']">
-                Add a company + 
-        </button>
+       <div class="inner-element">
+         <button class="company-btn" 
+                 (click)='clientsData.addCompanyMode = true' 
+                 [routerLink]="['/clients/add/company']">
+                 Add a company + 
+         </button>
+        <small *ngIf="clientsData.selectedClient.companies.length < 1"> * Add at least one company</small>
+      </div>
+
+        <div *ngFor = "let company of clientsData.selectedClient.companies" class="companies-container">
+                <p>Company Id: {{company.id}}</p> 
+                <p>Company Name: {{company.name}}</p>
+                <hr>      
+        </div>
 
       <div class="inner-element">
         <label>First Name</label>
@@ -45,10 +54,10 @@
       <div class="inner-element">
           <label>Choose a City</label>
           <select 
-              [disabled]="!eachStateCities.length > 0" 
+              [disabled]="!eachStateCities.length > 0 || !clientsData.selectedClient.state" 
               required #city="ngModel" name="city" 
               [(ngModel)]= "clientsData.selectedClient.city"
-              [class.disabled]="!eachStateCities.length > 0"
+              [class.disabled]="!eachStateCities.length > 0 || !clientsData.selectedClient.state"
               >
 
              <option *ngFor = "let city of eachStateCities" value="{{city.name}}" >{{city.name}}</option>
@@ -61,8 +70,9 @@
           <button 
                 *ngIf="!clientsData.editMode"  
                 (click)="createNewClient(form)" 
-                [disabled]="!form.valid"  
-                [class.disabled]="!form.valid"
+                [disabled]="!form.valid || clientsData.selectedClient.companies.length < 1"  
+                [class.disabled]="!form.valid|| clientsData.selectedClient.companies.length < 1"
+                
                 >
                 Add New Client 
          </button>
