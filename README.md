@@ -1,6 +1,7 @@
-# AngularTest
+# Username and Password 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+Username and password to generate Token 
+admin admin 
 
 ## Development server
 
